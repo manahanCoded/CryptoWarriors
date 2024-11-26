@@ -3,7 +3,7 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useEffect } from "react";
+import { FormEvent } from "react";
 import Image from "next/image";
 
 //icons
@@ -51,7 +51,7 @@ function Login() {
             <section className="px-12 py-8 text-white bg-[#333333] hidden lg:block">
               <h1 className="text-4xl font-semibold mb-8">Crypto Warriors</h1>
               <p>
-                In the world of web3, you are in charge! By signing in, you're
+                In the world of web3, you are in charge! By signing in, you&apos;re
                 embracing a new way of learning—decentralized, empowering, and
                 built for innovators like you. Register today and unlock the
                 skills that will drive the future of blockchain and beyond!
@@ -90,7 +90,7 @@ function Login() {
                     className="h-10 cursor-pointer"
                   />{" "}
                   <label className="text-xs">
-                    I've read and agree with terms of service and our privecy
+                    I&apos;ve read and agree with terms of service and our privecy
                     policy
                   </label>
                 </div>

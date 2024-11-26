@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { login, google_login, google_login_callback, register, logout, userInfo } from "./Controllers/User_Controller.mjs";
+import { login, google_login, google_login_callback, register, logout, userInfo} from "./Controllers/User_Controller.mjs";
 import { Validate_Login, Validate_Register } from "../Middleware/Validaitors/User_Validator.mjs";
 
 const router = Router()

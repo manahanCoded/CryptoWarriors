@@ -5,6 +5,11 @@ import db from "../../Database/DB_Connect.mjs";
 import bcrypt from "bcrypt";
 import {validationResult, matchedData} from "express-validator"
 
+import env from "dotenv"
+import axios from "axios"
+
+env.config()
+
 const login = (req, res) => {
 
   const problem = validationResult(req)
@@ -24,7 +29,7 @@ const login = (req, res) => {
 
     passport.authenticate("local", (err, user) => {
       if (err) {
-        console.erroror("Authentication error:", err);
+        console.error("Authentication error:", err);
         return res.status(500).json({ error: "Internal Server Error" });
       }
       if (!user) {
@@ -33,7 +38,7 @@ const login = (req, res) => {
 
       req.login(user, (err) => {
         if (err) {
-          console.erroror("Error during login:", err);
+          console.error("Error during login:", err);
           return res.status(500).json({ error: "Internal Server Error" });
         }
 
@@ -159,5 +164,9 @@ const userInfo = (req, res) => {
     email: req.user.email,
   })
 };
+
+
+
+
 
 export { login, google_login, google_login_callback, register, logout, userInfo };

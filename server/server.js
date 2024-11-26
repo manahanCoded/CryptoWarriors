@@ -8,6 +8,8 @@ import cookieParser from "cookie-parser";
 
 //ROUTES
 import User_Routes from "./src/Routes/User_Routes.mjs";
+import Job_Routes from "./src/Routes/Job_Routes.mjs";
+import Module_Routes from "./src/Routes/Module_Routes.mjs"
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,7 +26,7 @@ app.use(
     secret: process.env.SECRET_COOKIE || "defaultSecret",
     saveUninitialized: false,
     resave: false,
-    cookie: { secure: false, maxAge: 60 * 60000, signed: true }
+    cookie: { secure: false, maxAge: 60 * 60000, signed: true },
   })
 );
 
@@ -39,5 +41,7 @@ app.use(
 );
 
 app.use("/api/user", User_Routes);
+app.use("/api/job", Job_Routes);
+app.use("/api/module", Module_Routes)
 
 app.listen(port, () => console.log(`Port ${port} is now running...`));
