@@ -27,7 +27,7 @@ export default function ForumPage() {
   const [openBar, setOpenBar] = useState<boolean>(false);
 
   const [displayJobs, setDisplayJobs] = useState<checkJob[]>([]);
-  const [displayOptions, setDisplayOptions] = useState<checkJob[]>([])
+  const [displayOptions, setDisplayOptions] = useState<checkJob[]>([]);
 
   const handleSearch = async () => {
     const query = new URLSearchParams({
@@ -57,7 +57,7 @@ export default function ForumPage() {
         const data = await res.json();
         if (res.ok) {
           setDisplayJobs(data);
-          setDisplayOptions(data)
+          setDisplayOptions(data);
         } else {
           console.error("Failed to fetch all jobs");
         }
@@ -69,11 +69,9 @@ export default function ForumPage() {
     fetchAllJobs();
   }, []);
 
-
-
   return (
     <div className="mt-14">
-      <form >
+      <form>
         <MaxWidthWrapper className="h-16 flex flex-row justify-between items-center border-b-2 text-sm">
           <section className="lg:ml-60 flex flex-row border-[1px] rounded-lg overflow-hidden">
             <input
@@ -96,7 +94,9 @@ export default function ForumPage() {
           <section className="lg:flex flex-row text-gray-500  hidden">
             <div className="flex items-center h-10 px-6 border-r-2 ">
               <section
-                className={`h-16  flex flex-row items-center hover:bg-gray-300 cursor-pointer ${location.valueLocation? "text-black":"text-gray-500" }`}
+                className={`h-16  flex flex-row items-center hover:bg-gray-300 cursor-pointer ${
+                  location.valueLocation ? "text-black" : "text-gray-500"
+                }`}
                 onClick={() => {
                   setLocation({
                     ...location,
@@ -125,9 +125,7 @@ export default function ForumPage() {
                 >
                   All
                 </p>
-                {[
-                  ...new Set(displayOptions.map((job) => job.city)), 
-                ]
+                {[...new Set(displayOptions.map((job) => job.city))]
                   .sort()
                   .map((location, index) => (
                     <p
@@ -148,7 +146,9 @@ export default function ForumPage() {
 
             <div className="flex items-center h-10 px-6 border-r-2 ">
               <section
-                className={`h-16  flex flex-row items-center hover:bg-gray-300 cursor-pointer ${experience.valueExperience? "text-black":"text-gray-500" }`}
+                className={`h-16  flex flex-row items-center hover:bg-gray-300 cursor-pointer ${
+                  experience.valueExperience ? "text-black" : "text-gray-500"
+                }`}
                 onClick={() => {
                   setExperience({
                     ...experience,
@@ -209,7 +209,9 @@ export default function ForumPage() {
 
             <div className="flex items-center h-10 pl-4 pr-6 ">
               <section
-                className={`h-16  flex flex-row items-center hover:bg-gray-300 cursor-pointer ${salary.valueSalary? "text-black":"text-gray-500" }`}
+                className={`h-16  flex flex-row items-center hover:bg-gray-300 cursor-pointer ${
+                  salary.valueSalary ? "text-black" : "text-gray-500"
+                }`}
                 onClick={() => {
                   setSalary({ ...salary, openSalary: !salary.openSalary });
                 }}
@@ -305,24 +307,22 @@ export default function ForumPage() {
                   >
                     All
                   </p>
-                  {[
-                  ...new Set(displayOptions.map((job) => job.city)), 
-                ]
-                  .sort()
-                  .map((location, index) => (
-                    <p
-                      className="p-3 hover:bg-gray-300 border-b-[1px] cursor-pointer"
-                      key={index}
-                      onClick={() => {
-                        setLocation({
-                          openLocation: false,
-                          valueLocation: location,
-                        });
-                      }}
-                    >
-                      {location}
-                    </p>
-                  ))}
+                  {[...new Set(displayOptions.map((job) => job.city))]
+                    .sort()
+                    .map((location, index) => (
+                      <p
+                        className="p-3 hover:bg-gray-300 border-b-[1px] cursor-pointer"
+                        key={index}
+                        onClick={() => {
+                          setLocation({
+                            openLocation: false,
+                            valueLocation: location,
+                          });
+                        }}
+                      >
+                        {location}
+                      </p>
+                    ))}
                 </section>
               </div>
 
@@ -468,9 +468,10 @@ export default function ForumPage() {
                     {jobs.applicants ? jobs.applicants : 0} Applicants
                   </p>
                   <h4 className="lg:text-xl mb-1 font-bold">{jobs.title}</h4>
-                  <p className="lg:text-sm text-xs line-clamp-3 font-sans">
-                    {jobs.description}
-                  </p>
+                  <p
+                    className="lg:text-sm text-xs line-clamp-3 font-sans"
+                    dangerouslySetInnerHTML={{ __html: jobs.description }}
+                  ></p>
                   <div className="flex flex-row flex-wrap gap-2 mt-4">
                     <p className="border-2 px-2 py-1 rounded-lg  md:text-[0.7rem] text-[0.6rem] tracking-wide bg-violet-200 text-violet-800">
                       {jobs.city}

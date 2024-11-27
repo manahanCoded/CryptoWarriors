@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import "quill/dist/quill.snow.css";
 import checkModule from "@/Configure/checkModule";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
@@ -20,7 +19,7 @@ function Modules({ module }: ModuleProps) {
   return (
     <div className="mt-14">
       <MaxWidthWrapper className="py-14">
-        <div className="w-3/5 m-auto">
+        <div className="lg:w-3/5 md:w-4/5 m-auto">
           {posts.map((post) => (
             <div key={post.id}>
               <h1 className="flex flex-col font-extrabold text-5xl    ">

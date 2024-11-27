@@ -18,7 +18,7 @@ type UserInfo = {
   information: string;
 };
 
-function Add() {
+function CreateModulePage() {
   const router = useRouter();
   const [userInfo, setUserInfo] = useState<UserInfo>({
     title: "",
@@ -78,9 +78,9 @@ function Add() {
   };
 
   return (
-    <div className="mt-14 container mx-auto">
+    <div className="mt-14 container mx-auto ">
       <form onSubmit={addDetails} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h3 className="text-xl font-semibold mb-4">Add Article</h3>
+        <h3 className="text-xl font-semibold mb-4">Create Module</h3>
 
         {/* Title Input */}
         <div className="mb-4">
@@ -149,4 +149,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default CreateModulePage

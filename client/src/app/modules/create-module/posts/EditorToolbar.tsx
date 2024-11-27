@@ -30,22 +30,23 @@ const CustomRedo: React.FC = () => (
   </svg>
 );
 
-// Undo and Redo Handlers
+// eslint-disable-next-line
 function undoChange(this: any) {
   this.quill.history.undo();
 }
 
+// eslint-disable-next-line
 function redoChange(this: any) {
   this.quill.history.redo();
 }
 
-// Add Sizes to Whitelist
-const Size = Quill.import("formats/size");
+// eslint-disable-next-line
+const Size = Quill.import("formats/size") as any;
 Size.whitelist = ["extra-small", "small", "medium", "large"];
 Quill.register(Size, true);
 
-// Add Fonts to Whitelist
-const Font = Quill.import("formats/font");
+// eslint-disable-next-line
+const Font = Quill.import("formats/font") as any;
 Font.whitelist = [
   "arial",
   "comic-sans",

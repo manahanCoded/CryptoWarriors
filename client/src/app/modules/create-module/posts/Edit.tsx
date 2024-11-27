@@ -37,7 +37,7 @@ const Edit = () => {
         setError("Failed to load post data.");
         setIsLoading(false);
       }
-    } catch (error) {
+    } catch {
       setError("An error occurred while fetching the post.");
       setIsLoading(false);
     }
